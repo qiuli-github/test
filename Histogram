@@ -1,0 +1,20 @@
+# -*- coding:utf-8 -*-
+import os, csv
+import pandas as pd                     
+from matplotlib import pyplot as plt         
+
+fig = plt.figure(figsize=(3, 3.5), dpi=600)
+Biomass = pd.read_csv('D:/figure2_Histogram/Rainforest.csv')
+any(Biomass.AGBD.isnull())
+Biomass.dropna(subset=['AGBD'], inplace=True)
+plt.hist(x = Biomass.AGBD,
+         bins = 8, 
+         rwidth = 1,
+         color = 'steelblue',
+         edgecolor = 'black' 
+         )
+
+plt.xlabel('Biomass(Mg/ha)')
+plt.ylabel('Number of plots')
+plt.title('(d) Rainforest')
+plt.show()
